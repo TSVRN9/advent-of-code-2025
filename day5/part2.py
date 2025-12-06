@@ -14,17 +14,13 @@ with open("day5/input.txt", "r") as f:
     for bound, delta in bounds:
         parens += delta
         open_counts.append((bound, parens))
-
-    print(open_counts)
     
     num_fresh = 0
     for b, prev in zip(open_counts[1:], open_counts):
-        print(f'b={b}, prev={prev}')
         if prev[1] > 0:
             delta = b[0] - prev[0]
             if b[1] == 0:
                 delta += 1
             num_fresh += delta
-            print(f'delta={delta}')
         
     print(num_fresh)

@@ -17,8 +17,6 @@ with open("day5/input.txt", "r") as f:
         parens += delta
         open_counts.append((bound, parens))
 
-    print(open_counts)
-    
     num_fresh = 0
     for i in ids:
         idx = bisect_left(open_counts, i, key=lambda b: b[0]) - 1
@@ -26,7 +24,6 @@ with open("day5/input.txt", "r") as f:
             _, num_open = open_counts[idx]
 
             if num_open > 0:
-                print(f'{i}, {idx}')
                 num_fresh += 1
-    
+
     print(num_fresh)
